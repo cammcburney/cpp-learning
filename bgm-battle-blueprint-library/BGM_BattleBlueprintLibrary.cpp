@@ -31,3 +31,28 @@ float UBGM_BattleBlueprintLibrary::CalculateArmouredDamage(int32 ArmourUnits, fl
 
     return NewDamage;
 }
+
+TArray<int32> UBGM_BattleBlueprintLibrary::CalculateEnemyMoveSet(bool WMUser, bool BMUser, bool VUser, bool HUser, bool TechUser)
+{
+    TArray<int32> NumArray;
+    NumArray.Add(0);
+
+    if (WMUser || BMUser || HUser || VUser)
+    {
+        NumArray.Add(1);
+    }
+    if (TechUser)
+    {
+        NumArray.Add(2);
+    }
+
+    return NumArray;
+}
+
+int32 UBGM_BattleBlueprintLibrary::CalculateEnemyMove(TArray<int32> MoveSetChoices)
+{
+    int32 MoveChoice;
+    
+
+    return MoveChoice;
+}

@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -16,6 +14,11 @@ class CRANNBETHADHARENA_API UBGM_BattleBlueprintLibrary : public UBlueprintFunct
 
 public:
 
-    UFUNCTION(BlueprintCallable, Category = "MyCustomFunctions")
+    UFUNCTION(BlueprintCallable, Category = "BGM_Damage")
     static float CalculateArmouredDamage(int32 ArmourUnits, float Damage);
+
+    UFUNCTION(BlueprintCallable, Category = "AI_Move_Set")
+    static TArray<int32> CalculateEnemyMoveSet(bool WMUser, bool BMUser, bool VUser, bool HUser, bool TechUser);
+
+
 };
