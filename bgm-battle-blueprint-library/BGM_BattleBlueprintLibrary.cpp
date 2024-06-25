@@ -32,27 +32,39 @@ float UBGM_BattleBlueprintLibrary::CalculateArmouredDamage(int32 ArmourUnits, fl
     return NewDamage;
 }
 
-TArray<int32> UBGM_BattleBlueprintLibrary::CalculateEnemyMoveSet(bool WMUser, bool BMUser, bool VUser, bool HUser, bool TechUser)
+#include "BGM_BattleBlueprintLibrary.h"
+
+FEnemyMoveSet UBGM_BattleBlueprintLibrary::CalculateEnemyMoveSet(bool WMUser, bool BMUser, bool VUser, bool HUser, bool TechUser)
 {
-    TArray<int32> NumArray;
-    NumArray.Add(0);
+    FEnemyMoveSet MoveSet;
+
+    MoveSet.NumArray.Add(0);
 
     if (WMUser || BMUser || HUser || VUser)
     {
-        NumArray.Add(1);
+        MoveSet.NumArray.Add(1);
     }
     if (TechUser)
     {
-        NumArray.Add(2);
+        MoveSet.NumArray.Add(2);
     }
 
-    return NumArray;
-}
+    if (WMUser)
+    {
+        MoveSet.MagicArray.Add(0);
+    }
+    else if (BMUser)
+    {
+        MoveSet.MagicArray.Add(1);
+    }
+    else if (HUser)
+    {
+        MoveSet.MagicArray.Add(2);
+    }
+    else if (VUser)
+    {
+        MoveSet.MagicArray.Add(3);
+    }
 
-int32 UBGM_BattleBlueprintLibrary::CalculateEnemyMove(TArray<int32> MoveSetChoices)
-{
-    int32 MoveChoice;
-    
-
-    return MoveChoice;
+    return MoveSet;
 }

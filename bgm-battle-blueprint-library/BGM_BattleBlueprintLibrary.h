@@ -7,6 +7,20 @@
 /**
  * 
  */
+
+USTRUCT(BlueprintType)
+struct FEnemyMoveSet
+{
+    GENERATED_BODY()
+
+public:
+    UPROPERTY(BlueprintReadWrite, Category = "AI_Move_Set")
+    TArray<int32> NumArray;
+
+    UPROPERTY(BlueprintReadWrite, Category = "AI_Move_Set")
+    TArray<int32> MagicArray;
+};
+
 UCLASS()
 class CRANNBETHADHARENA_API UBGM_BattleBlueprintLibrary : public UBlueprintFunctionLibrary
 {
@@ -18,7 +32,5 @@ public:
     static float CalculateArmouredDamage(int32 ArmourUnits, float Damage);
 
     UFUNCTION(BlueprintCallable, Category = "AI_Move_Set")
-    static TArray<int32> CalculateEnemyMoveSet(bool WMUser, bool BMUser, bool VUser, bool HUser, bool TechUser);
-
-
+    static FEnemyMoveSet CalculateEnemyMoveSet(bool WMUser, bool BMUser, bool VUser, bool HUser, bool TechUser);
 };
